@@ -15,17 +15,21 @@ suite('grunt-commenthash', function() {
     });
 
     test('comment with template via function addded to file', function() {
-      assert.ok(fs.existsSync('out/custom_template/test1.js'));
-      assert.equal(fs.readFileSync('out/custom_template/test1.js', 'utf8'), fs.readFileSync('test/fixtures/custom_template/test1.js', 'utf8'));
+      assert.ok(fs.existsSync('out/template_function/test1.js'));
+      assert.equal(fs.readFileSync('out/template_function/test1.js', 'utf8'), fs.readFileSync('test/fixtures/template_function/test1.js', 'utf8'));
 
-      assert.ok(fs.existsSync('out/custom_template/test2.js'));
-      assert.equal(fs.readFileSync('out/custom_template/test2.js', 'utf8'), fs.readFileSync('test/fixtures/custom_template/test2.js', 'utf8'));
+      assert.ok(fs.existsSync('out/template_function/test2.js'));
+      assert.equal(fs.readFileSync('out/template_function/test2.js', 'utf8'), fs.readFileSync('test/fixtures/template_function/test2.js', 'utf8'));
     });
 
     test('directory structure intact', function() {
-      assert.ok(fs.existsSync('out/custom_template/subdir/test3.js'));
-      assert.equal(fs.readFileSync('out/custom_template/subdir/test3.js', 'utf8'), fs.readFileSync('test/fixtures/custom_template/subdir/test3.js', 'utf8'));
+      assert.ok(fs.existsSync('out/template_function/subdir/test3.js'));
+      assert.equal(fs.readFileSync('out/template_function/subdir/test3.js', 'utf8'), fs.readFileSync('test/fixtures/template_function/subdir/test3.js', 'utf8'));
     });
 
+    test('adding both banner and footer', function() {
+      assert.ok(fs.existsSync('out/banner_footer/test1.js'));
+      assert.equal(fs.readFileSync('out/banner_footer/test1.js', 'utf8'), fs.readFileSync('test/fixtures/banner_footer/test1.js', 'utf8'));
+    });
   });
 });

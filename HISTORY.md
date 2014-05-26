@@ -2,6 +2,9 @@
 ==================
 
   * Insert comment before source map URL to prevent breaking source map functionality (javascript files)
+  * Make user choose location for comment (footer, banner or both). Default only footer is enabled.
+  * When true is returned for footer or banner the default template for comments is used.
+  * Removed prefix/suffix options
 
 0.0.6 / 2014-05-26 
 ==================

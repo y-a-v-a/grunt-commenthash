@@ -9,26 +9,34 @@ module.exports = function(grunt) {
       },
       template: {
         options: {
-          template: '<%= grunt.template.today("yyyy-mm-dd") %> - <%= commenthash.value %>'
+          footer: '-= <%= commenthash.value %> =-'
         },
         dest: 'out/template/',
         src: 'examples/test1.js'
       },
-      custom_template: {
+      template_function: {
         options: {
-          template: function(data) {
+          footer: function(data) {
             if(data.src === 'examples/test1.js') {
-              return 'test1 - <%= grunt.template.today("yyyy-mm-dd") %> - <%= commenthash.value %>';
+              return 'test1 - <%= commenthash.value %>';
             } else {
-              return '<%= grunt.template.today("yyyy-mm-dd") %> - <%= commenthash.value %>';
+              return true;
             }
           }
         },
         expand: true,
         cwd: 'examples/',
         src: '**/*.js',
-        dest: 'out/custom_template/'
-      }
+        dest: 'out/template_function/'
+      },
+      banner_footer: {
+        dest: 'out/banner_footer/',
+        src: 'examples/test1.js',
+        options: {
+          banner: 'banner: <%= commenthash.value %>',
+          footer: true
+        }
+      },
     },
     watch: {
       files: '<%= jshint.all %>',

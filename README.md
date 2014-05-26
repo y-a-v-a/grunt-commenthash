@@ -32,7 +32,8 @@ grunt.initConfig({
 			hashFunction: function(source, encoding){ // default is md5
 				return require('crypto').createHash('sha1').update(source, encoding).digest('hex');
 			},
-      template: '<%= grunt.template.today("yyyy-mm-dd") %> - <%= commenthash.value %>' // Template for comment text, do not include comment wrapper as this is extension specific
+      footer: '<%= grunt.template.today("yyyy-mm-dd") %> - <%= commenthash.value %>', // Comment text template
+      banner: false // Can be true, false, a string or a function that returns a template/boolean. Function retrieves some metadata.
 		},
     expand: true,
     cwd: 'src/',
@@ -45,6 +46,27 @@ grunt.loadNpmTasks('grunt-commenthash');
 
 Configuration follow the multi-task standard configuration format: http://gruntjs.com/configuring-tasks
 
+```javascript
+grunt.initConfig({
+  commenthash: {
+    options: {
+      footer: false,
+      banner: function(data) {
+        if(data.src === 'src/test1.js') {
+          return 'test1 - <%= commenthash.value %>';
+        } else {
+          return true;
+        }
+      }
+    },
+    expand: true,
+    cwd: 'src/',
+    src: '**/*.js',
+    dest: 'dist/'
+  }
+});
+grunt.loadNpmTasks('grunt-commenthash');
+```
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt][grunt].
