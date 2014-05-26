@@ -51,4 +51,3 @@ https://github.com/jgallen23/grunt-hash
 
 Copyright (c) 2014 Meinaart van Straalen
 Licensed under the MIT license.
-
