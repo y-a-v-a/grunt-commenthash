@@ -2,18 +2,22 @@
 
 Calculates a unique hash of a file. This hash will be added as a comment to javascript, CSS, PHP and HTML files.
 
-##Grunt 0.4
-
-This task depends on grunt 0.4.x. 
-
 ## Getting Started
-Install this grunt plugin next to your project's [grunt.js gruntfile][getting_started] with: `npm install grunt-commenthash`
+This plugin requires Grunt `~0.4.0`
 
-Then add this line to your project's `grunt.js` gruntfile:
+If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
-```javascript
+```shell
+npm install grunt-commmenthash --save-dev
+```
+
+Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
+
+```js
 grunt.loadNpmTasks('grunt-commmenthash');
 ```
+
+*This plugin was designed to work with Grunt 0.4.x. If you're still using grunt v0.3.x it's strongly recommended that [you upgrade](http://gruntjs.com/upgrading-from-0.3-to-0.4).*
 
 [grunt]: http://gruntjs.com/
 [getting_started]: https://github.com/gruntjs/grunt/blob/master/docs/getting_started.md
