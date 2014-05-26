@@ -23,10 +23,13 @@
   "main": "grunt.js",
   "bin": "bin/grunt-commenthash",
   "engines": {
-    "node": "*"
+    "node": ">= 0.8.0"
   },
   "scripts": {
     "test": "grunt test"
+  },
+  "dependencies": {
+    "chalk": ">=0.1.0"
   },
   "devDependencies": {
     "grunt": "~0.4.0",
@@ -34,8 +37,10 @@
     "grunt-contrib-clean": "~0.5.0",
     "grunt-simple-mocha": "~0.4.0",
     "grunt-contrib-watch": "~0.5.3",
-    "load-grunt-tasks": "~0.1.0",
-    "chalk": ">=0.1.0"
+    "load-grunt-tasks": "~0.1.0"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.0"
   },
   "keywords": [
     "gruntplugin"
