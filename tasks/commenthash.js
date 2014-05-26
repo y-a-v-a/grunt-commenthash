@@ -64,7 +64,7 @@ module.exports = function (grunt) {
             if (!rawOptions) {
               rawOptions = grunt.config.getRaw(grunt.task.current.name + '.' + grunt.task.current.target + '.options');
             }
-            if(rawOptions) {
+            if(rawOptions && rawOptions.template) {
               commentTemplate = rawOptions.template;
             }
             break;

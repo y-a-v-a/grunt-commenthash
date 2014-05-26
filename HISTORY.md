@@ -1,3 +1,8 @@
+0.0.6 / 2014-05-26 
+==================
+
+  * Fixed bug with template in options not working
+
 0.0.5 / 2014-05-26 
 ==================
 
