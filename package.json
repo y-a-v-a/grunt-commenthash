@@ -1,0 +1,43 @@
+{
+  "name": "grunt-commenthash",
+  "description": "Calculates a unique hash for a file and adds it to the file as inline comment. Can be used for file comparison.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/meinaart/grunt-commenthash",
+  "author": {
+    "name": "Meinaart van Straalen",
+    "email": "meinaart@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/meinaart/grunt-commenthash.git"
+  },
+  "bugs": {
+    "url": "https://github.com/meinaart/grunt-commenthash/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/meinaart/grunt-commenthash/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "grunt.js",
+  "bin": "bin/grunt-commenthash",
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-simple-mocha": "~0.4.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "load-grunt-tasks": "~0.1.0",
+    "chalk": ">=0.1.0"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
