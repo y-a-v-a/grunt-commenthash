@@ -46,8 +46,9 @@ Configuration follow the multi-task standard configuration format: http://gruntj
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt][grunt].
 
 ## License
-Based on the hard work of grunt-hash creator Greg Allen: https://github.com/jgallen23/grunt-hash
-Copyright (c) 2012 Greg Allen  
+Based on the hard work of grunt-hash creator Greg Allen: 
+https://github.com/jgallen23/grunt-hash
+
 Copyright (c) 2014 Meinaart van Straalen
 Licensed under the MIT license.
 
