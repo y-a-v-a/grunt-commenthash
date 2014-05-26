@@ -1,7 +1,7 @@
 {
   "name": "grunt-commenthash",
   "description": "Calculates a unique hash for a file and adds it to the file as inline comment. Can be used for file comparison.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/meinaart/grunt-commenthash",
   "author": {
     "name": "Meinaart van Straalen",
