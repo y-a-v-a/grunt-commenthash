@@ -28,7 +28,9 @@ module.exports = function (grunt) {
     var options = this.options({
       hashLength: 8,
       hashFunction: getHash,
-      template: '<%= commenthash.value %>'
+      template: '<%= commenthash.value %>',
+      prefix: '',
+      suffix: ''
     });
 
     var rawOptions;
@@ -76,13 +78,13 @@ module.exports = function (grunt) {
         switch (ext.toLowerCase()) {
         case '.css':
         case '.js':
-          comment = '/*!' + commentText + '*/';
+          comment = options.prefix + '/*!' + commentText + '*/' + options.suffix;
           break;
         case '.html':
-          comment = '<!--' + commentText + '-->';
+          comment = options.prefix + '<!--' + commentText + '-->' + options.suffix;
           break;
         case '.php':
-          comment = '<?php /*' + commentText + '*/ ?>';
+          comment = options.prefix + '<?php /*' + commentText + '*/ ?>' + options.suffix;
           break;
         }
 
