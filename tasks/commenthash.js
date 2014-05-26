@@ -19,6 +19,35 @@ module.exports = function (grunt) {
 
   // Please see the grunt documentation for more information regarding task and
   // helper creation: https://github.com/gruntjs/grunt/blob/master/docs/toc.md
+  // 
+  
+  /**
+   * Returns longest string in an array
+   * @param  {array} strings Array filled with strings
+   * @return {string}       Longest string in strings array
+   */
+  function getLongestString(strings) {
+    strings.sort(function(a, b) {
+      var aVal = a.toString().length;
+      var bVal = b.toString().length;
+
+      if(aVal === bVal) { return 0; }
+      return aVal > bVal ? -1 : 1;
+    });
+
+    return strings[0];
+  }
+
+  /**
+   * Returns the last index where item matched with regexp is found.
+   * @param  {string} string Input string
+   * @param  {regexp} regex  Regular expression
+   * @return {int}        Index
+   */
+  function lastIndexOfRegex(string, regex) {
+    var matches = string.match(regex);
+    return matches && matches.length > 0 ? string.lastIndexOf(getLongestString(matches)) : -1;
+  }
 
   // ==========================================================================
   // TASKS
@@ -75,10 +104,21 @@ module.exports = function (grunt) {
         }
 
         var commentText = grunt.template.process(commentTemplate, {data: templateData});
+        var insertIndex = -1;
         switch (ext.toLowerCase()) {
         case '.css':
         case '.js':
           comment = options.prefix + '/*!' + commentText + '*/' + options.suffix;
+
+          var sourceMapRegex = /\/\/[@#]\s+sourceMappingURL=(.+)/;
+          var sourceMapRegex2 =  /\/\*#\s+sourceMappingURL=([^\s]+)\s+\*\//;
+          if(ext.toLowerCase() === '.js' && (sourceMapRegex.test(source) || sourceMapRegex2.test(source))) {
+            insertIndex = source.lastIndexOf('//;//#');
+
+            if(insertIndex === -1) {
+              insertIndex = sourceMapRegex.test(source) ? lastIndexOfRegex(source, sourceMapRegex) : lastIndexOfRegex(source, sourceMapRegex2);
+            }
+          }
           break;
         case '.html':
           comment = options.prefix + '<!--' + commentText + '-->' + options.suffix;
@@ -88,7 +128,11 @@ module.exports = function (grunt) {
           break;
         }
 
-        if (src === dest) {
+        if(insertIndex !== -1) {
+          // Insert comment at specific position
+          var output = source.substring(0, insertIndex) + comment + source.substring(insertIndex, source.length);
+          grunt.file.write(dest, output);
+        } else if (src === dest) {
           action = 'Processed';
           fs.appendFileSync(src, comment);
         } else {

@@ -1,3 +1,8 @@
+0.0.7 / 2014-05-27 
+==================
+
+  * Insert comment before source map URL to prevent breaking source map functionality (javascript files)
+
 0.0.6 / 2014-05-26 
 ==================
 
