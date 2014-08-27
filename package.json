@@ -20,8 +20,6 @@
       "url": "https://github.com/meinaart/grunt-commenthash/blob/master/LICENSE-MIT"
     }
   ],
-  "main": "grunt.js",
-  "bin": "bin/grunt-commenthash",
   "engines": {
     "node": ">= 0.8.0"
   },
