@@ -1,4 +1,4 @@
-# grunt-hash
+# grunt-commenthash [![Build Status](https://travis-ci.org/meinaart/grunt-commenthash.svg?branch=master)](https://travis-ci.org/meinaart/grunt-commenthash)
 
 Calculates a unique hash of a file. This hash will be added as a comment to javascript, CSS, PHP and HTML files.
 
