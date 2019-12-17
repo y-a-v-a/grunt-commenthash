@@ -28,17 +28,17 @@ grunt.loadNpmTasks('grunt-commmenthash');
 grunt.initConfig({
 	commenthash: {
 		options: {
-			hashLength: 8, // hash length, the max value depends on your hash function
-			hashFunction: function(source, encoding){ // default is md5
-				return require('crypto').createHash('sha1').update(source, encoding).digest('hex');
-			},
+      hashLength: 8, // hash length, the max value depends on your hash function
+      hashFunction: function(source, encoding) { // default is md5
+        return require('crypto').createHash('sha1').update(source, encoding).digest('hex');
+      },
       footer: '<%= grunt.template.today("yyyy-mm-dd") %> - <%= commenthash.value %>', // Comment text template
       banner: false // Can be true, false, a string or a function that returns a template/boolean. Function retrieves some metadata.
-		},
+    },
     expand: true,
     cwd: 'src/',
     src: '**/*.js',
-    dest: dist/'
+    dest: 'dist/'
 	}
 });
 grunt.loadNpmTasks('grunt-commenthash');
@@ -72,7 +72,7 @@ grunt.loadNpmTasks('grunt-commenthash');
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt][grunt].
 
 ## License
-Based on the hard work of grunt-hash creator Greg Allen: 
+Based on the hard work of grunt-hash creator Greg Allen:
 https://github.com/jgallen23/grunt-hash
 
 Copyright (c) 2014 Meinaart van Straalen
